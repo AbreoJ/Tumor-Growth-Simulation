@@ -1,7 +1,7 @@
 function Spreadhotpoint(magnitude)
 
-% This function is performed to generate a bunch of sprouting stimulus points spreaded in the 3D computational domain, the dendsity of those sprouting
-% stimulus points are caculated according to the concentration of VEGF at each given grid. 
+% This function is performed to generate a bunch of sprouting stimulus points spread in the 3D computational domain, the density of those sprouting
+% stimulus points are calculated according to the concentration of VEGF at each given grid. 
 
 global TAF nod3xyz N len slen wlen hotpoint
 

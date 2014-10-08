@@ -2,14 +2,6 @@ function boundary=DetectBoundary(nod3xyz,len)
 
 % This function is designed for detecting computational domain boundary
 
-%%================ 3D Tumor Growth and Angiogenesis Model ===============%%
-%                                                                         %
-%            Zhou's Lab, Methodist Hospital Research Institute            %      
-%            Weill Cornell Medical College, Cornell University            %
-%            Terry L.Tang            Copyright(C) Feb.13, 2012            %
-%=========================================================================%
-
-
 geom.a=find(nod3xyz(:,1)==0);      %left   boundary
 geom.b=find(nod3xyz(:,1)==len);    %right  boundary
 geom.c=find(nod3xyz(:,2)==0);      %front  boundary

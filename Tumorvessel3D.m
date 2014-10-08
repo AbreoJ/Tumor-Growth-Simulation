@@ -1,6 +1,6 @@
 function Tumorvessel3D()
 
-% This funciton is designed to visualize 3D solid tumor and blood vessels. 
+% This function is designed to visualize 3D solid tumor and blood vessels. 
 
 Visual3Dtumor();
 

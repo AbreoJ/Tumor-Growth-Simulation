@@ -3,14 +3,6 @@ function InitCancerCell()
 % This function is designed to generate initial cancer cells located in the
 % center of computational domain. 
 
-%%================ 3D Tumor Growth and Angiogenesis Model ===============%%
-%                                                                         %
-%            Zhou's Lab, Methodist Hospital Research Institute            %      
-%            Weill Cornell Medical College, Cornell University            %
-%            Terry L.Tang            Copyright(C) Feb.13, 2012            %
-%=========================================================================%
-
-
 global celltype cell_energy N len slen nod3xyz activity 
 
 h=len/(N-1);                    % Length of spatial step

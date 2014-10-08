@@ -57,14 +57,14 @@ global index_bias      % 3D Matrix: offsets toward neighboring grids from one ce
 global stackvalue      % Vector: transfer parameter values for stack 
 global stackcount      % Stack operation counter 
 global vessgrowth_flag   
-global branchrecord    % Record the vessel cells that have branched, we assure the vessel cells that have branched won't branch again.  
+global branchrecord    % Record the vessel cells that have branched, I assure the vessel cells that have branched won't branch again.  
 global sprout_index   
 global nec
 
 
 %===================    Create grid   ===================
 % The domain of simulations is a cube sized 1 cm^3
-% We assume the size of each tumor cell is 50 micrometers
+% I assume the size of each tumor cell is 50 micrometers
 % Hence, in each cube length there are 200 grids (or max 200 cells) 
 len     = 10;           
 N       = 201;             
@@ -186,7 +186,7 @@ lambda_d0       = 2.5e-7;  % Drug consumption rate [estimated]
 lambda_decay    = 1.0e-8;  % Drug decay rate [estimated]
 
 % Pressure
-pres_scale  = 1;  % Tumor intersitial presssure: 1~60 mmHg, by adjusting this parameter, we can therefore investigate the growth patterns of different types of tumor, low pressure, high pressure.
+pres_scale  = 1;  % Tumor intersitial presssure: 1~60 mmHg, by adjusting this parameter, I can therefore investigate the growth patterns of different types of tumor, low pressure, high pressure.
                   % Our hypothesis is that the interstitial pressure inside solid tumor will give rise to different morphologies. Bigger interstitial pressure gives rise to dendritic tumor.
 cap_pres    = 30;  % unit: mmHg
 p0          = 60*pres_scale;  % unit: mmHg
@@ -296,7 +296,7 @@ for iteration=1:calit  % (Drug treatment: Day40->Day60) (Day0-->Day40 without Dr
     %=== Calculate every 20th step ===%
     if mod(iteration-1,20)==0       
         pres=zeros(1,wlen);        % Pressure field needs to be recalculated each iteration.    
-        cindex=find(celltype~=0);  % Pls note: We are not interested in cells, since it is not the cells cause intersitial pressure to its surrounding tissue. We are just interested in each grind point occupied by tumor cells which indicate the tumor region.  
+        cindex=find(celltype~=0);  % Please note: I am not interested in cells, since it is not the cells cause intersitial pressure to its surrounding tissue. I am just interested in each grind point occupied by tumor cells which indicate the tumor region.  
         vindex=find(vess_tag>0);   % All vessel cells 
         
         % Calculate CTP
@@ -323,7 +323,7 @@ for iteration=1:calit  % (Drug treatment: Day40->Day60) (Day0-->Day40 without Dr
         for ss = 1:length(vindex)
             vind = vindex(ss);
             
-            % Tumor cell density around vessel cell, here we assume vessel
+            % Tumor cell density around vessel cell, here I assume vessel
             % only causes additional pressure inside tumor due to membrane
             % effect [Ref]
             density  = sum(celltype(vind+index_bias)>0)/length(index_bias);
@@ -464,7 +464,7 @@ for iteration=1:calit  % (Drug treatment: Day40->Day60) (Day0-->Day40 without Dr
     p=reshape(pres,N,N,N);
    
     Delta_P = (pv-p(2:N-1,2:N-1,2:N-1)-sigmaT*(piV-piI));
-    Delta_P(find(Delta_P<=0)) = 0;  % We hypothesize that drug won't go back into blood vessel again. 
+    Delta_P(find(Delta_P<=0)) = 0;  % I hypothesize that drug won't go back into blood vessel again. 
     
     Fv = Lp*p0*SV.*Delta_P;
     Pev = Lp*p0*Delta_P*(1-sigmaD)./Pvp;

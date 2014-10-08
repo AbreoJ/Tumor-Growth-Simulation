@@ -13,7 +13,7 @@ if vess{s}.count>=(10*((1/10)^(1/30))^(30-pres(s)*60))
    if ~isempty(gro) 
        if vess_tag(s)==1   
 
-               vess{s}.son=s+index_bias(gro);      % vess{s}.son=[] when it was created, now it has one decendant, we add the son location. 
+               vess{s}.son=s+index_bias(gro);      % vess{s}.son=[] when it was created, now it has one descendant, I add the son location. 
                vess_tag(s+index_bias(gro))=0.95; 
 %                vess_age(s+index_bias(gro))=vess_age(s);      % New endothelial cell :  cellage=0; cellage++ in each iteration.
                if vess_age(s) > 1
@@ -34,7 +34,7 @@ if vess{s}.count>=(10*((1/10)^(1/30))^(30-pres(s)*60))
 
                 if hotpoint(s)==0       
 
-                   vess{s}.son=s+index_bias(gro);      % vess{s}.son=[] when it was created, now it has one decendant, we add the son location. 
+                   vess{s}.son=s+index_bias(gro);      % vess{s}.son=[] when it was created, now it has one descendant, I add the son location. 
                    vess_tag(s)=1;
                    vess_tag(s+index_bias(gro))=0.95;  
                    if vess_age(s) > 1
@@ -49,7 +49,7 @@ if vess{s}.count>=(10*((1/10)^(1/30))^(30-pres(s)*60))
                    
                 else    % Touching the branching hotpoint, EC starts to branch.  
 
-                   vess{s}.son=s+index_bias(gro);      % vess{s}.son=[] when it was created, now it has one decendant, we add the son location. 
+                   vess{s}.son=s+index_bias(gro);      % vess{s}.son=[] when it was created, now it has one descendant, I add the son location. 
                    vess_tag(s)=1;
                    vess_tag(s+index_bias(gro))=0.95;   
                    if vess_age(s) > 1
@@ -68,7 +68,7 @@ if vess{s}.count>=(10*((1/10)^(1/30))^(30-pres(s)*60))
                    
                    if ~isempty(gro)
 
-                       vess{s}.son=s+index_bias2(gro);      % vess{s}.son=[] when it was created, now it has one decendant, we add the son location. 
+                       vess{s}.son=s+index_bias2(gro);      % vess{s}.son=[] when it was created, now it has one descendant, I add the son location. 
                        vess_tag(s)=1;
                        vess_tag(s+index_bias2(gro))=0.95;   
                        if vess_age(s)>1
@@ -141,7 +141,7 @@ global N slen TAF pres vess vess_tag celltype
         
         if (rand(1)<pres(s))   % More likely to enter this calculation when approaching the tumor 
             
-            %%%% Presure Calculation
+            %%%% Pressure Calculation
             pres0=pres(s+index_bias2)'-repmat(pres(s),length(index_bias2),1);
             prob=pres0.*(prob==1);
             prob=repmat(norm(prob),length(index_bias2),1).*(prob~=0)-prob;
